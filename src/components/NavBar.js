@@ -20,7 +20,7 @@ const NavBar=({ setIsLoggedIn })=>{
       navigate('/login');
     }
     return (
-        <div>
+        <div >
           <NavLink
             to="/"
             /* set exact so it knows to only set activeStyle when route is deeply equal to link */
@@ -54,6 +54,18 @@ const NavBar=({ setIsLoggedIn })=>{
           >
             Login
           </NavLink>
+          <NavLink
+            to="/register"
+            exact
+            style={linkStyles}
+            activeStyle={{
+              background: "darkblue",
+            }}
+          >
+            Sign Up
+          </NavLink>
+
+
           <button onClick={handleLogout}>Logout</button>
         </div>
     )

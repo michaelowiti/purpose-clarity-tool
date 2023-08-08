@@ -28,19 +28,31 @@ const Login=({setIsLoggedIn})=>{
   return (
     <form onSubmit={handleSubmit}>
       <h1>Login</h1>
+
+      {/* <div class="col-md-6" style={{width:"700px"}}>
+    <input type="text" class="form-control" placeholder="First name" aria-label="First name"/>
+  </div> */}
+  <div class="col-md-6 mb-4" style={{width:"700px"}}>
       <input
         type="text"
         name="username"
+        class="form-control"
+        placeholder="username"
         value={formData.username}
         onChange={handleChange}
       />
+      </div>
+
+      <div class="col-md-6" style={{width:"700px"}} >
       <input
         type="password"
         name="password"
+        class="form-control"
         value={formData.password}
         onChange={handleChange}
       />
-      <button type="submit">Login</button>
+      </div>
+      <button class="form-control mt-4" style={{width:"100px"}} type="submit">Login</button>
     </form>
   );
 }
