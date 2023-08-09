@@ -48,6 +48,7 @@ const Login=({setIsLoggedIn})=>{
         type="password"
         name="password"
         class="form-control"
+        placeholder="password"
         value={formData.password}
         onChange={handleChange}
       />

@@ -1,13 +1,16 @@
 
 import React, { useState } from "react";
 import { Routes ,Route} from 'react-router-dom';
-import Home from "./Home";
-import About from "./About";
-import Login from "./Login";
-import NavBar from "./NavBar";
-import Form from "./Form";
+import Home from "./components/Home";
+import About from "./components/About";
+import Login from "./components/Login";
+import NavBar from "./components/NavBar";
+import Form from "./components/Form";
+import Firststep from "./components/Firststep";
 import './App.css';
-import Register from "./Register";
+import Register from "./components/Register";
+
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -20,6 +23,7 @@ function App() {
       <Route exact path="/about" element={<About />} />
       <Route exact path="/login"   element={<Login setIsLoggedIn={setIsLoggedIn} />} />
       <Route exact path="/form" element={<Form  />} />
+      <Route path="/firststep" element={<Firststep />} />
       <Route exact path="/register" element={<Register />} />
       <Route exact path="/" element={<Home isLoggedIn={isLoggedIn} />} />
         </Routes>

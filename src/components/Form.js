@@ -1,84 +1,97 @@
-import React from "react";
+import React, { useState } from "react";
+import Firststep from "./Firststep";
+import Secondstep from "./Secondstep";
+import Thirdstep from "./Thirdstep";
+import Forthstep from "./Forthstep";
+import Fifthstep from "./Fifthstep";
+import Sixthstep from "./Sixthstep";
+import Seventhstep from "./Seventhstep";
+
+
+//container of all the steps
 const Form=()=>{
+
+  const [page, setPage] = useState(0);//keeps track of which step/page we're in
+  const [fomData, setFomData] = useState({
+    firstAnswer: "",
+    secondAnswer: "",
+    thirdAnswer: "",
+    forthAnswer: "",
+    fifthAnswer: "",
+    sixthAnswer: "",
+    seventhAnswer: "",
+    
+  });
+
+  const FormTitles = ["Firststep", "Secondstep", "Thirdstep","Forthstep","Fifthstep","Sixthstep","Seventhstep"];
+
+  const pageDisplay= ()=> {
+    if (page === 0) {
+    return <Firststep fomData={fomData} setFomData={setFomData} />
+    }
+
+    else if (page === 1) {
+    return  <Secondstep fomData={fomData} setFomData={setFomData} />
+    }
+
+    else if (page === 2) {
+      return  <Thirdstep fomData={fomData} setFomData={setFomData} />
+      }
+
+      else if (page === 3) {
+        return  <Forthstep fomData={fomData} setFomData={setFomData} />
+        }
+
+        else if (page === 4) {
+          return  <Fifthstep fomData={fomData} setFomData={setFomData} />
+          }
+
+          else if (page === 5) {
+            return  <Sixthstep fomData={fomData} setFomData={setFomData} />
+            }
+            else {
+              return <Seventhstep fomData={fomData} setFomData={setFomData} />
+            }
+  }
+ 
+  
+
+
+
     return (
-        <div>
-            <form >
+        <div className="fom">
+          <div className="progressbar">
+            <div style={{ width: `${(100 / FormTitles.length) * (page + 1)}%` }}>
 
-    <div class="mb-3 ">
-  <label for="q1" class="form-label"><h2>Who are you?</h2></label><br/>
-  <div style={{color:"green"}}>
-  <p>To help in answering respond to the following</p>
-  <li class="list-group-item" style={{color:"green",border:"none"}}>what are your passions?</li>
-  <li class="list-group-item" style={{color:"green",border:"none"}}>what do you have great interest and pleasure doing?</li>
-  <li class="list-group-item" style={{color:"green",border:"none"}}>what are the things that you have the inner energy to pursue"</li>
-  </div>
-  
-</div>
-<div class="mb-3" style={{width:"800px"}}>
-  <label for="textarea1" class="form-label">Your answer</label>
-  <textarea class="form-control" id="textarea1" rows="4"></textarea>
-  </div>
-
-  <div class="mb-3 ">
-  <label for="q2" class="form-label"><h2>what do you do well?</h2></label>
-  <p>To help in answering respond to the following</p>
-  <li class="list-group-item" style={{color:"green",border:"none"}}>is it possible you can do many things,but what are you really good at?</li>
- 
-</div>
-<div class="mb-3" style={{width:"800px"}}>
-  <label for="textarea2" class="form-label">Your answer</label>
-  <textarea class="form-control" id="textarea2" rows="4"></textarea>
-</div>
-
-
-<div class="mb-3 ">
-  <label for="q3" class="form-label"><h2>what do you love to do?</h2></label>
-
-</div>
-<div class="mb-3" style={{width:"800px"}}>
-  <label for="textarea3" class="form-label">Your answer</label>
-  <textarea class="form-control" id="textarea3" rows="4"></textarea>
-</div>
-
-<div class="mb-3 ">
-  <label for="q4" class="form-label"><h2>whom do you intend to serve?</h2></label>
- 
-</div>
-<div class="mb-3" style={{width:"800px"}}>
-  <label for="textarea4" class="form-label">Your answer</label>
-  <textarea class="form-control" id="textarea4" rows="4"></textarea>
-</div>
-
-<div class="mb-3 ">
-  <label for="q5" class="form-label"><h2>what do your beneficiaries need?</h2></label>
-  
-</div>
-<div class="mb-3" style={{width:"800px"}}>
-  <label for="textarea5" class="form-label">Your answer</label>
-  <textarea class="form-control" id="textarea5" rows="4"></textarea>
-</div>
-
-<div class="mb-3 ">
-  <label for="q6" class="form-label"><h2>How do your offerings transform your beneficiaries?</h2></label>
-  
-</div>
-<div class="mb-3" style={{width:"800px"}}>
-  <label for="textarea6" class="form-label">Your answer</label>
-  <textarea class="form-control" id="textarea6" rows="4"></textarea>
-</div>
-
-<div class="mb-3 p-3" >
-  <label for="q7" class="form-label"><h2>What activities can generate income for you?</h2></label>
-  
-</div>
-<div class="mb-3" style={{width:"800px"}}>
-  <label for="textarea7" class="form-label">Your answer</label>
-  <textarea class="form-control" id="textarea7" rows="6"></textarea>
-</div>
-<button type="submit" class="btn btn-primary">Submit</button>
-</form>
+            </div>
+          </div>
+          <div className="fomcontainer">
+            <div className="header">
+              <h1>{FormTitles[page]}</h1>
+            </div>
+            <div className="body">{pageDisplay()}</div>
+            <div className="footer"></div>
+            <button class="primary"
+            disabled={page == 0}
+            style={{width:"200px"}}
+            onClick={() => {setPage((currPage) => currPage - 1);}}>Prev</button>
+            <button  
+            style={{width:"200px"}}
+            class="primary "
+            onClick={() => {
+              if (page === FormTitles.length - 1) {
+                alert("FORM SUBMITTED");//submit to an API also display answers so user can see
+                console.log(fomData);
+              } else {
+                setPage((currPage) => currPage + 1);
+              }
+            }} >
+            {page === FormTitles.length - 1 ? "Submit" : "Next"}
+            </button>
+          </div>
 
         </div>
+           
     )
 
 }
