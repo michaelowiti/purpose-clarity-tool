@@ -6,6 +6,7 @@ import Forthstep from "./Forthstep";
 import Fifthstep from "./Fifthstep";
 import Sixthstep from "./Sixthstep";
 import Seventhstep from "./Seventhstep";
+import Answers from "./Answers";
 
 
 //container of all the steps
@@ -22,6 +23,8 @@ const Form=()=>{
     seventhAnswer: "",
     
   });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const FormTitles = ["Firststep", "Secondstep", "Thirdstep","Forthstep","Fifthstep","Sixthstep","Seventhstep"];
 
@@ -81,7 +84,12 @@ const Form=()=>{
             onClick={() => {
               if (page === FormTitles.length - 1) {
                 alert("FORM SUBMITTED");//submit to an API also display answers so user can see
-                console.log(fomData);
+                // console.log(fomData);
+                //update the state when submit form
+                setIsSubmitted(true);
+
+                <Answers />
+                
               } else {
                 setPage((currPage) => currPage + 1);
               }
@@ -89,8 +97,10 @@ const Form=()=>{
             {page === FormTitles.length - 1 ? "Submit" : "Next"}
             </button>
           </div>
+          {isSubmitted && <Answers fomData={fomData} />}
 
         </div>
+       
            
     )
 
