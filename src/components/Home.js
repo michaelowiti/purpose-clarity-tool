@@ -1,10 +1,15 @@
 import React,{  Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Home=({ isLoggedIn })=>{
     if (!isLoggedIn) return <Navigate to="/login" />;
     return (
-        <div>
-          <h1>Home!</h1>
+        <div style={{backgroundColor:"aliceblue"}}>
+          <h1>Put a descriptionn about the site</h1>
+          <Link to="/form">
+        <button class="btn btn-secondary">Go to Form</button>
+      </Link>
+          
         </div>
       )
 }

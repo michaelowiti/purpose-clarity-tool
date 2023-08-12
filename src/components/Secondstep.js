@@ -3,7 +3,7 @@ import React from 'react'
 function Secondstep({fomData, setFomData}) {
   return (
     <div>
-        <h2>What do you do well?</h2>
+       
      <p>The challenge here is that you may have unutilised potential;<br/> 
      hence, you must search deeper than what you are currently good at.<br/>
       You may not even have the right words to explain what you are good at.<br/>
@@ -12,10 +12,10 @@ function Secondstep({fomData, setFomData}) {
       not have to be fancy or cool to others. It does not have to attract top dollars;<br/>
       you must be good at it. Two questions will guide you in answering question 2.</p>
 
-           <div style={{color:"green"}}>
+           <div style={{color:"maroon"}}>
            <p>To help in answering the question, respond to the following questions:</p>
-           <li class="list-group-item" style={{border:"none"}}>It is possible that you can do many things, but what are you really good at?</li> 
-           <li class="list-group-item" style={{border:"none"}}>What do you feel uniquely qualified to teach or offer others?</li> 
+           <li  style={{border:"none",listStyle:"none"}}>It is possible that you can do many things, but what are you really good at?</li> 
+           <li  style={{border:"none",listStyle:"none"}}>What do you feel uniquely qualified to teach or offer others?</li> 
            
            </div>
 

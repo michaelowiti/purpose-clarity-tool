@@ -26,7 +26,7 @@ const Login=({setIsLoggedIn})=>{
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form style={{backgroundColor:"aliceblue"}} onSubmit={handleSubmit}>
       <h1>Login</h1>
 
       {/* <div class="col-md-6" style={{width:"700px"}}>
@@ -53,7 +53,7 @@ const Login=({setIsLoggedIn})=>{
         onChange={handleChange}
       />
       </div>
-      <button class="form-control mt-4" style={{width:"100px"}} type="submit">Login</button>
+      <button class="btn btn-secondary mt-4" style={{width:"100px"}} type="submit">Login</button>
     </form>
   );
 }

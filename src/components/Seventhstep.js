@@ -3,15 +3,15 @@ import React from 'react'
 function Seventhstep({fomData, setFomData}) {
   return (
     <div>
-        <h2>What activities can generate income for you?</h2>
+       
      <p>Without this question, all the other questions lead to a hobby, and with only<br/>
       this ques- tion, you may end up as an unfulfilled ruthless money-making machine.<br/>
       This question gives you a vocation and multiplies the impact you can make.</p>
 
-           <div style={{color:"green"}}>
+           <div style={{color:"maroon"}}>
            <p>To help in answering the question, respond to the following questions:</p>
-           <li class="list-group-item" style={{border:"none"}}> What are the beneficiaries willing and able to pay for, and how much?</li> 
-           <li class="list-group-item" style={{border:"none"}}>Are the payments enough to maintain a going concern?</li> 
+           <li  style={{border:"none",listStyle:"none"}}> What are the beneficiaries willing and able to pay for, and how much?</li> 
+           <li  style={{border:"none",listStyle:"none"}}>Are the payments enough to maintain a going concern?</li> 
           
            </div>
 

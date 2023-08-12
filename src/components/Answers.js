@@ -12,8 +12,8 @@ function Answers({ fomData }) {
   } = fomData;
 
   return (
-    <div>
-      <h2>Who are you?</h2>
+    <div >
+      <h2 >Who are you?</h2>
       <p>{firstAnswer}</p>
       <h2>What do you do well?</h2>
       <p>{secondAnswer}</p>

@@ -26,7 +26,13 @@ const Form=()=>{
 
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const FormTitles = ["Firststep", "Secondstep", "Thirdstep","Forthstep","Fifthstep","Sixthstep","Seventhstep"];
+  const FormTitles = ["Who are you?",
+   "What do you do well?",
+    "What do you love to do?",
+    "Whom do you intend to serve?",
+    "What do your beneficiaries need?",
+    "How do your offerings transform your beneficiaries?",
+    "What activities can generate income for you?"];
 
   const pageDisplay= ()=> {
     if (page === 0) {
@@ -62,9 +68,12 @@ const Form=()=>{
 
 
     return (
-        <div className="fom">
-          <div className="progressbar">
-            <div style={{ width: `${(100 / FormTitles.length) * (page + 1)}%` }}>
+        <div  style={{backgroundColor:"aliceblue"}}className="fom">
+          <div className="progressbar" style={{ marginLeft:"50rem",}}>
+            <div style={{
+               width: `${(100 / FormTitles.length) * (page + 1)}%`,
+               backgroundColor:"grey"
+               }}>
 
             </div>
           </div>
@@ -74,13 +83,13 @@ const Form=()=>{
             </div>
             <div className="body">{pageDisplay()}</div>
             <div className="footer"></div>
-            <button class="primary"
+            <button class="btn btn-secondary"
             disabled={page == 0}
-            style={{width:"200px"}}
+            style={{width:"200px",marginBottom:"5rem"}}
             onClick={() => {setPage((currPage) => currPage - 1);}}>Prev</button>
             <button  
-            style={{width:"200px"}}
-            class="primary "
+            style={{width:"200px",marginBottom:"5rem", marginLeft: "10px"}}
+            class="btn btn-secondary"
             onClick={() => {
               if (page === FormTitles.length - 1) {
                 alert("FORM SUBMITTED");//submit to an API also display answers so user can see

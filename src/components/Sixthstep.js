@@ -3,7 +3,7 @@ import React from 'react'
 function Sixthstep({fomData, setFomData}) {
   return (
     <div>
-        <h2>How do your offerings transform your beneficiaries?</h2>
+        
      <p>State not just the output but the outcome, which is the impact of your action.<br/>
       The answer to why you do what you do should be inbuilt into the impact you want to<br/>
       create. Personally, I inspire individuals and organisations to live meaningful lives.<br/>
@@ -11,10 +11,10 @@ function Sixthstep({fomData, setFomData}) {
       meaningful lives. The beneficiaries transform from pursuing anything they can to pursuing<br/>
       what impacts society and fulfils them.</p>
 
-           <div style={{color:"green"}}>
+           <div style={{color:"maroon"}}>
            <p>To help in answering the question, respond to the following questions:</p>
-           <li class="list-group-item" style={{border:"none"}}>What is the output of your interventions?</li> 
-           <li class="list-group-item" style={{border:"none"}}>Which group do you uniquely understand its struggles?</li> 
+           <li style={{border:"none",listStyle:"none"}}>What is the output of your interventions?</li> 
+           <li  style={{border:"none",listStyle:"none"}}>Which group do you uniquely understand its struggles?</li> 
           
            </div>
 

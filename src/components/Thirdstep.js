@@ -3,7 +3,7 @@ import React from 'react'
 function Thirdstep({fomData, setFomData}) {
   return (
     <div>
-        <h2>What do you love to do?</h2>
+        
      <p>These are the loves of your life. You must see yourself as lucky or blessed<br/>
       to work on those pursuits. It is the kind of work you enjoy. I have concluded that<br/>
       sustainable good success is built on the path of less resistance internally.<br/>
@@ -17,12 +17,12 @@ function Thirdstep({fomData, setFomData}) {
         Include activities that get you into the flow.
 </p>
 
-           <div style={{color:"green"}}>
+           <div style={{color:"maroon"}}>
            <p>To help in answering the question, respond to the following questions:</p>
-           <li class="list-group-item" style={{border:"none"}}>You can be good at several things, but what do you love to do?</li> 
-           <li class="list-group-item" style={{border:"none"}}>What are your passions?</li> 
-           <li class="list-group-item" style={{border:"none"}}>What do you have great interest and pleasure in doing?</li> 
-           <li class="list-group-item" style={{border:"none"}}>What are the things that you have the inner energy to pursue?</li> 
+           <li  style={{border:"none",listStyle:"none"}}>You can be good at several things, but what do you love to do?</li> 
+           <li  style={{border:"none",listStyle:"none"}}>What are your passions?</li> 
+           <li style={{border:"none",listStyle:"none"}}>What do you have great interest and pleasure in doing?</li> 
+           <li  style={{border:"none",listStyle:"none"}}>What are the things that you have the inner energy to pursue?</li> 
            
            </div>
 

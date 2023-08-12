@@ -3,7 +3,7 @@ import React from 'react'
 function Forthstep({fomData, setFomData}) {
   return (
     <div>
-        <h2>Whom do you intend to serve?</h2>
+        
      <p>Name your beneficiaries. Find your community. You may serve the whole world,<br/>
       but like Apple, which serves a 'think different' or creative community, you must<br/>
        have your own core group. Just because you can write doesn't mean you can write for<br/>
@@ -14,12 +14,12 @@ function Forthstep({fomData, setFomData}) {
        low-cost home. If you are in this space, you must pick a group you are passionate about<br/>
        serving.</p>
 
-           <div style={{color:"green"}}>
+           <div style={{color:"maroon"}}>
            <p>To help in answering the question, respond to the following questions:</p>
-           <li class="list-group-item" style={{border:"none"}}>Who is your core constituency?</li> 
-           <li class="list-group-item" style={{border:"none"}}>Which group do you uniquely understand its struggles?</li> 
-           <li class="list-group-item" style={{border:"none"}}>Which people, groups, or things/animals/environment do you enjoy serving?</li> 
-           <li class="list-group-item" style={{border:"none"}}>Do they enjoy being served by you?</li> 
+           <li style={{border:"none",listStyle:"none"}}>Who is your core constituency?</li> 
+           <li style={{border:"none",listStyle:"none"}}>Which group do you uniquely understand its struggles?</li> 
+           <li style={{border:"none",listStyle:"none"}}>Which people, groups, or things/animals/environment do you enjoy serving?</li> 
+           <li style={{border:"none",listStyle:"none"}}>Do they enjoy being served by you?</li> 
            
            </div>
 

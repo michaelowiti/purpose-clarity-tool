@@ -8,7 +8,7 @@ const Register = () => {
 
 
   return (
-    <div>
+    <div style={{backgroundColor:"aliceblue"}}>
        <form class="row g-3" >
         <h2>New user</h2>
         <p>Use the form below to create the account</p>
@@ -38,7 +38,7 @@ const Register = () => {
   
 
   <div class="col-12" >
-    <button type="submit" style={{width:"500px"}} class="btn btn-primary">Sign Up </button>
+    <button type="submit" style={{width:"500px"}} class="btn btn-secondary">Register</button>
   </div>
 </form>
 
