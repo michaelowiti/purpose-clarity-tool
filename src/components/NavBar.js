@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 
 
@@ -14,6 +14,10 @@ const linkStyles = {
   
 const NavBar=({ setIsLoggedIn })=>{
     const navigate = useNavigate();
+    const location = useLocation();
+    if(location.pathname ==="/form"){
+      return null
+    }
 
     function handleLogout() {
       setIsLoggedIn(false);

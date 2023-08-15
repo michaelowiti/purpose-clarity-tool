@@ -68,7 +68,8 @@ const Form=()=>{
 
 
     return (
-        <div  style={{backgroundColor:"aliceblue"}}className="fom">
+        <div  style={{backgroundColor:"white",width:"100%",maxHeight:"100%"}}
+        className="fom">
           <div className="progressbar" style={{ marginLeft:"50rem",}}>
             <div style={{
                width: `${(100 / FormTitles.length) * (page + 1)}%`,
@@ -83,6 +84,7 @@ const Form=()=>{
             </div>
             <div className="body">{pageDisplay()}</div>
             <div className="footer"></div>
+            <div style={{marginTop:'-40px', position:'fixed'}}>
             <button class="btn btn-secondary"
             disabled={page == 0}
             style={{width:"200px",marginBottom:"5rem"}}
@@ -105,6 +107,7 @@ const Form=()=>{
             }} >
             {page === FormTitles.length - 1 ? "Submit" : "Next"}
             </button>
+            </div>
           </div>
           {isSubmitted && <Answers fomData={fomData} />}
 
