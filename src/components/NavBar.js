@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 
@@ -12,15 +12,11 @@ const linkStyles = {
     color: "white",
   };
   
-const NavBar=({ setIsLoggedIn })=>{
+const NavBar=({ setToken })=>{
     const navigate = useNavigate();
-    const location = useLocation();
-    if(location.pathname ==="/form"){
-      return null
-    }
 
     function handleLogout() {
-      setIsLoggedIn(false);
+      setToken("")
       navigate('/login');
     }
     return (
