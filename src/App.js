@@ -10,6 +10,7 @@ import Firststep from "./components/Firststep";
 import './App.css';
 import Register from "./components/Register";
 import { useLocalStorage } from "./useLocalStorage";
+import Answers from "./components/Answers";
 
 
 
@@ -17,6 +18,16 @@ function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [token, setToken] = useLocalStorage()
   const [user, setUser] = useState(null)
+  const [fomData, setFomData] = useState({
+    you: "",
+    do: "",
+    love: "",
+    serve: "",
+    beneficiaries: "",
+    transform: "",
+    income: "",
+    
+  });
 
   const navigate = useNavigate()
 
@@ -51,14 +62,12 @@ function App() {
       <Route exact path="/navbar" element={<NavBar  setToken={setToken}/>} />
       <Route exact path="/about" element={<About />} />
       <Route exact path="/login"   element={<Login setToken={setToken} />} />
-      <Route exact path="/form" element={<Form  />} />
+      <Route exact path="/form" element={<Form  token={token}/>} />
       <Route path="/firststep" element={<Firststep />} />
       <Route exact path="/register" element={<Register setToken={setToken}/>} />
+      <Route exact path="/answers" element={<Answers fomData={fomData} setToken={setToken}/>} />
       <Route exact path="/" element={<Home/>} />
         </Routes>
-
-        
-
     </div>
   )
 }

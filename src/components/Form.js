@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Firststep from "./Firststep";
 import Secondstep from "./Secondstep";
 import Thirdstep from "./Thirdstep";
@@ -7,24 +7,69 @@ import Fifthstep from "./Fifthstep";
 import Sixthstep from "./Sixthstep";
 import Seventhstep from "./Seventhstep";
 import Answers from "./Answers";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 //container of all the steps
-const Form=()=>{
+const Form=({token})=>{
+ const navigate = useNavigate()
+ const location =useLocation()
 
+   const handlenav =()=>{
+    navigate('/answers')
+   }
   const [page, setPage] = useState(0);//keeps track of which step/page we're in
   const [fomData, setFomData] = useState({
-    firstAnswer: "",
-    secondAnswer: "",
-    thirdAnswer: "",
-    forthAnswer: "",
-    fifthAnswer: "",
-    sixthAnswer: "",
-    seventhAnswer: "",
+    you: "",
+    do: "",
+    love: "",
+    serve: "",
+    beneficiaries: "",
+    transform: "",
+    income: "",
     
   });
+//get the form answers if already entered. set page to last
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
+const [isSubmitted, setIsSubmitted] = useState(false);
+const getProfile = ()=>{
+  fetch("http://localhost:4000/profile",{
+    method: "GET",
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  })
+  .then(r=> {
+    if(r.ok){
+      r.json().then(data=>{
+        if(data.profile){
+          setFomData(data.profile)
+          setPage(6)
+          setIsSubmitted(true)
+        }
+      })
+    }
+  })
+}
+
+useEffect(()=>{
+  getProfile()
+},[])
+
+const handleSubmit = ()=>{
+  fetch("http://localhost:4000/profile/edit",{
+    method: "POST",
+    headers:{
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${token}`
+    },
+    body: JSON.stringify(fomData)
+  }).then(r=>{
+    if(r.ok){
+      alert("Responses saved!!")
+    }
+  })
+}
 
   const FormTitles = ["Who are you?",
    "What do you do well?",
@@ -68,8 +113,7 @@ const Form=()=>{
 
 
     return (
-        <div  style={{backgroundColor:"white",width:"100%",maxHeight:"100%"}}
-        className="fom">
+        <div  style={{backgroundColor:"aliceblue"}}className="fom">
           <div className="progressbar" style={{ marginLeft:"50rem",}}>
             <div style={{
                width: `${(100 / FormTitles.length) * (page + 1)}%`,
@@ -84,7 +128,6 @@ const Form=()=>{
             </div>
             <div className="body">{pageDisplay()}</div>
             <div className="footer"></div>
-            <div style={{marginTop:'-40px', position:'fixed'}}>
             <button class="btn btn-secondary"
             disabled={page == 0}
             style={{width:"200px",marginBottom:"5rem"}}
@@ -94,12 +137,13 @@ const Form=()=>{
             class="btn btn-secondary"
             onClick={() => {
               if (page === FormTitles.length - 1) {
-                alert("FORM SUBMITTED");//submit to an API also display answers so user can see
+                // alert("FORM SUBMITTED");//submit to an API also display answers so user can see
                 // console.log(fomData);
+                handleSubmit()
                 //update the state when submit form
                 setIsSubmitted(true);
 
-                <Answers />
+                handlenav()
                 
               } else {
                 setPage((currPage) => currPage + 1);
@@ -107,7 +151,6 @@ const Form=()=>{
             }} >
             {page === FormTitles.length - 1 ? "Submit" : "Next"}
             </button>
-            </div>
           </div>
           {isSubmitted && <Answers fomData={fomData} />}
 
