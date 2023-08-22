@@ -1,28 +1,31 @@
 import React from 'react';
-import Purposestatement from './Purposestatement';
+import Purposestatement from "./Purposestatement";
+import { useLocation } from "react-router-dom";
 
-function Answers({ fomData }) {
-  const {
-    you, do:whatYouDo, love, serve, beneficiaries, transform, income
-  } = fomData;
+
+function Answers() {
+  const {state} =useLocation()
 
   return (
     <div >
       <h2 >Who are you?</h2>
-      <p>{you}</p>
+      <p>{state.fomData.you}</p>
       <h2>What do you do well?</h2>
-      <p>{whatYouDo}</p>
+      <p>{state.fomData.whatYouDo}</p>
       <h2>What do you love to do?</h2>
-      <p>{love}</p>
+      <p>{state.fomData.love}</p>
       <h2>Whom do you intend to serve?</h2>
-      <p>{serve}</p>
+      <p>{state.fomData.serve}</p>
       <h2>What do your beneficiaries need?</h2>
-      <p>{beneficiaries}</p>
+      <p>{state.fomData.beneficiaries}</p>
       <h2>How do your offerings transform your beneficiaries?</h2>
-      <p>{transform}</p>
+      <p>{state.fomData.transform}</p>
       <h2>What activities can generate income for you?</h2>
-      <p>{income}</p>
+      <p>{state.fomData.income}</p>
+
       <div>{<Purposestatement />}</div>
+
+
     </div>
   );
 }

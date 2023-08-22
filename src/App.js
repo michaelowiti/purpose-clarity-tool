@@ -65,8 +65,8 @@ function App() {
       <Route exact path="/form" element={<Form  token={token}/>} />
       <Route path="/firststep" element={<Firststep />} />
       <Route exact path="/register" element={<Register setToken={setToken}/>} />
-      <Route exact path="/answers" element={<Answers fomData={fomData} setToken={setToken}/>} />
-      <Route exact path="/" element={<Home/>} />
+      <Route exact path="/answers" element={<Answers fomData={fomData}  />} />
+      <Route exact path="/" element={<Home />} />
         </Routes>
     </div>
   )

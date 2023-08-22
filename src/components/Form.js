@@ -13,10 +13,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 //container of all the steps
 const Form=({token})=>{
  const navigate = useNavigate()
- const location =useLocation()
+ 
 
    const handlenav =()=>{
-    navigate('/answers')
+    navigate('/answers',{
+      state:{
+        fomData
+      }
+    })
    }
   const [page, setPage] = useState(0);//keeps track of which step/page we're in
   const [fomData, setFomData] = useState({
@@ -138,10 +142,18 @@ const handleSubmit = ()=>{
             onClick={() => {
               if (page === FormTitles.length - 1) {
                 // alert("FORM SUBMITTED");//submit to an API also display answers so user can see
-                // console.log(fomData);
-                handleSubmit()
-                //update the state when submit form
-                setIsSubmitted(true);
+                 console.log(fomData);
+
+                 setIsSubmitted(true);
+
+                 setFomData(fomData)
+
+                 
+                
+                //  handleSubmit()
+                
+                 //update the state when submit form
+                
 
                 handlenav()
                 
@@ -152,7 +164,7 @@ const handleSubmit = ()=>{
             {page === FormTitles.length - 1 ? "Submit" : "Next"}
             </button>
           </div>
-          {isSubmitted && <Answers fomData={fomData} />}
+          {isSubmitted && <Answers />}
 
         </div>
        
